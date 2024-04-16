@@ -7,15 +7,17 @@ model = models.Sequential([
     layers.MaxPooling2D((2, 2)),
     layers.Conv2D(64, (3, 3), activation='relu'),
     layers.MaxPooling2D((2, 2)),
-    layers.Conv2D(32, (3, 3), activation='relu'),
-    layers.MaxPooling2D((2, 2)),
-    layers.Conv2D(32, (3, 3), activation='relu'),
+    layers.Conv2D(128, (3, 3), activation='relu'), # Test accuracy: 0.9894000291824341
+    # layers.MaxPooling2D((2, 2)),
+    # layers.Conv2D(64, (3, 3), activation='relu'),# Test accuracy: 0.9905999898910522 -> a bit of overfitting compared to the above
+    # layers.MaxPooling2D((2, 2)),
+    # layers.Conv2D(128, (3, 3), activation='relu', padding='same'),    # Test accuracy: 0.9847999811172485 -> overfitting of the model
     layers.Flatten(),
     layers.Dense(64, activation='relu'),
     layers.Dense(10, activation='softmax')
 ])
 
-# Compilarea modelului
+# Compilarea modelului si optimizarea lui prin optimizatorul Adam
 model.compile(optimizer='adam',
               loss='sparse_categorical_crossentropy',
               metrics=['accuracy'])
