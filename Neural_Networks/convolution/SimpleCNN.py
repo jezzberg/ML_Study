@@ -12,7 +12,6 @@ def read_data():
     datasetDir = 'images/'
 
     firstImg = True
-    nrClasses = len(os.listdir(datasetDir))
     images, labels = None, None
     for classDir in os.listdir(datasetDir):
         label = int(classDir)
@@ -20,15 +19,12 @@ def read_data():
         for imgFile in os.listdir(imgDir):
             img = mpimg.imread(imgDir + imgFile)
             if firstImg == True:
-                imgWidth = img.shape[0]
-                imgHeight = img.shape[1]
                 images = np.array([img])
                 labels = np.array([label])
                 firstImg = False
             else:
                 images = np.vstack([images, [img]])
                 labels = np.append(labels, label)
-    nrImages = images.shape[0]
 
     # shuffle data
     randomIdx = np.random.permutation(len(images))
@@ -46,7 +42,6 @@ class SimpleCNN(nn.Module):
         super(SimpleCNN, self).__init__()
 
         inputWidth = imgWidth
-        inputHeight = imgHeight
         nrConvFilters = 3
         convFilterSize = 5
         poolSize = 2
