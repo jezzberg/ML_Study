@@ -9,9 +9,9 @@ model = models.Sequential([
     layers.MaxPooling2D((2, 2)),
     layers.Conv2D(128, (3, 3), activation='relu'), # Test accuracy: 0.9894000291824341
     # layers.MaxPooling2D((2, 2)),
-    # layers.Conv2D(64, (3, 3), activation='relu'),# Test accuracy: 0.9905999898910522 -> a bit of overfitting compared to the above
+    # layers.Conv2D(64, (3, 3), activation='relu'),# Test accuracy: 0.9905999898910522 -> better compared to the above, here were 3 layers, the above had 64
     # layers.MaxPooling2D((2, 2)),
-    # layers.Conv2D(128, (3, 3), activation='relu', padding='same'),    # Test accuracy: 0.9847999811172485 -> overfitting of the model
+    # layers.Conv2D(128, (3, 3), activation='relu', padding='same'),    # Test accuracy: 0.9847999811172485 -> overfitting of the model, 4 layers with the above uncommented and lines 9-10 commented
     layers.Flatten(),
     layers.Dense(64, activation='relu'),
     layers.Dense(10, activation='softmax')
