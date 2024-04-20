@@ -2,7 +2,7 @@ from sklearn.ensemble import RandomForestClassifier
 from ucimlrepo import fetch_ucirepo 
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder 
-from sklearn.metrics import accuracy_score 
+from sklearn.metrics import  accuracy_score 
 import numpy as np
 
 
@@ -37,11 +37,11 @@ for col in x.select_dtypes(include=['object']).columns:
 print(f"x encoded: \n{x}")
 
 # split data
-x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2)
-
+x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.4, random_state=42)
+print(f"x train: \n{x_train}")
 
 # Step 3: Initialize the Random Forest Classifier
-rf_classifier = RandomForestClassifier()
+rf_classifier = RandomForestClassifier(n_estimators=50, random_state=42)
 
 # Step 4: Training the Model
 rf_classifier.fit(x_train, y_train)
@@ -50,7 +50,6 @@ rf_classifier.fit(x_train, y_train)
 y_pred = rf_classifier.predict(x_test)
 
 # Step 5: Evaluating the Model
-
 y_test_flat = np.ravel(y_test)
 y_pred_flat = np.ravel(y_pred)
 accuracy = accuracy_score(y_test_flat, y_pred_flat)
