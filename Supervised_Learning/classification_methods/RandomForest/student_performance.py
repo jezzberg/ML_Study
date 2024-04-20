@@ -80,6 +80,7 @@ y_pred = rf_classifier.predict(x_test)
 y_test = np.ravel(y_test)
 y_pred = np.ravel(y_pred)
 print('Model accuracy score with 100 decision-trees : {0:0.4f}'. format(accuracy_score(y_test, y_pred)))
+#  Model accuracy score with 100 decision-trees : 0.4385
 
 # view the feature scores
 feature_scores = pd.Series(rf_classifier.feature_importances_, index=x_train.columns).sort_values(ascending=False)
