@@ -12,7 +12,7 @@ In this section, you'll find a variety of exercises covering different machine l
 - [SVM Impelmentation](Supervised_Learning/classification_methods/SVM)
 - [Naive Bayes Implementation](Supervised_Learning/classification_methods/Naive_Bayes)
 - [KNN Implementation](Supervised_Learning/classification_methods/K-Nearest_Neighbors)
-- [Optimization Exercises](Optimization)
+- [Optimization Exercises - Gradient](Optimization)
 - [Classic Neural Networks Exercises](Neural_Networks/classic)
 - [Convolution Neural Networks Exercises](Neural_Networks/convolution)
 - [Recurrent Neural Networks Exercises](Neural_Networks/recurrent)
